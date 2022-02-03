@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+<!--		<link src='https://www.google.com/recaptcha/api.js' type='text/javascript' defer="defer" />-->
+		<link src="Omnyfy_VendorSignUp::js/google-places-autocomplete.js" type='text/javascript' defer="defer" />
+	</head>
+
+	<body>
+		<referenceContainer name="head.additional">
+			<block class="Omnyfy\Core\Block\Template" name="googlemaps.api" template="Omnyfy_Core::google_maps_api.phtml" />
+		</referenceContainer>
+
+		<referenceContainer name="page.top">
+			<block class="Magento\Cms\Block\Block" as="become.vendor" name="become_vendor">
+				<arguments>
+					<argument name="block_id" xsi:type="string">vendor_signup_form_before</argument>
+				</arguments>
+			</block>
+		</referenceContainer>
+
+        <referenceContainer name="content">
+			<block class="Omnyfy\VendorSignUp\Block\SignUp\Form" name="vendor.signup.form" template="Omnyfy_VendorSignUp::signup/form.phtml">
+				<block class="Omnyfy\VendorSignUp\Block\SignUp\Attributes" name="vendor_attributes" as="vendor_attributes"
+					   template="Omnyfy_VendorSignUp::signup/attributes.phtml"/>
+
+				<container name="additional.data"/>
+
+				<block class="MSP\ReCaptcha\Block\Frontend\ReCaptcha" name="msp-recaptcha"
+					   template="MSP_ReCaptcha::msp_recaptcha.phtml"
+					   ifconfig="msp_securitysuite_recaptcha/frontend/enabled">
+					<arguments>
+						<argument name="jsLayout" xsi:type="array">
+							<item name="components" xsi:type="array">
+								<item name="msp-recaptcha" xsi:type="array">
+									<item name="component" xsi:type="string">MSP_ReCaptcha/js/reCaptcha</item>
+									<item name="zone" xsi:type="string">vendor_signup</item>
+								</item>
+							</item>
+						</argument>
+					</arguments>
+				</block>
+			</block>
+        </referenceContainer>
+    </body>
+</page>

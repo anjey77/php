@@ -1,0 +1,4 @@
+<?php
+$vendorHelper = $this->helper('Omnyfy\Vendor\Helper\Data');
+?>
+<input type="hidden" id="is-check-shipping" name="is-check-shipping" value="<?php echo $vendorHelper->getConfigValue('shipping_restrict/general/status') ?>"/>

@@ -1,0 +1,23 @@
+{
+    "name": "omnyfy/stripe",
+    "description": "Vendor Stripe Payout",
+    "type": "magento2-module",
+    "version": "2.2.0",
+    "license": "proprietary",
+    "authors": [
+        {
+            "email": "info@omnyfy.com",
+            "name": "Omnyfy"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Omnyfy\\Stripe\\": ""
+        }
+    }
+}

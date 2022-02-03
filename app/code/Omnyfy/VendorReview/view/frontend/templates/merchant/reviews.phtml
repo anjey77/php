@@ -1,0 +1,24 @@
+<?php
+/** @var  $block \Omnyfy\VendorReview\Block\Vendor\Summary */
+
+$vendorHelper = $this->helper('Omnyfy\VendorReview\Helper\Vendor');
+
+$currentVendorTypeId = $block->getVendorInfo()->getTypeId();
+$vendorTypeAssignReview = explode(',', $vendorHelper->getVendorTypeAssignReview());
+
+if ($vendorHelper->isVendorReviewEnabled()): ?>
+<section class="reviews-section" id="reviews">
+    <div class="container">
+        <div class="flex-columns">
+            <div class="review-main">
+                <?php echo $block->getChildHtml('vendor_review_block_list'); ?>
+            </div>
+            <?php if(in_array($currentVendorTypeId, $vendorTypeAssignReview)): ?>
+                <div class="review-sidebar">
+                    <?php echo $block->getChildHtml('vendor_review_block_form'); ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
+<?php endif; ?>

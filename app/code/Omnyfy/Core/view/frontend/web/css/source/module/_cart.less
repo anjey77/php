@@ -1,0 +1,36 @@
+// /**
+//  * Copyright © Omnyfy, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  *
+//  * File overwrites Porto's styling
+//  */
+
+
+//
+//  Variables
+//  ---------------------------------------------
+@cart-product-image__width: 150px;
+@cart-product-image__height: @cart-product-image__width;
+
+//
+//    Common
+//--------------------------------------
+
+& when (@media-common = true) {
+    .cart.table-wrapper {
+        .cart.item {
+            .product-item-photo {
+                width: @cart-product-image__width;
+            }
+
+            img.photo.image {
+                display: block;
+                width: @cart-product-image__width;
+                height: @cart-product-image__height;
+                overflow: hidden;
+                max-height: unset;
+                max-width: unset;
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+//
+//  Variables
+//  ------------------------------------
+
+@account-page-title-wrapper-h1__font-size:  40px;
+@account-page-title-wrapper-h1__color: #202021;
+@account-page-title-wrapper-h1__margin-top: 24px;
+@account-page-title-wrapper-order-date__margin-top: 10px;
+
+//
+//  Common styles
+//  ------------------------------------
+
+& when(@media-common = true) {
+    .account .column.main > .page-title-wrapper{
+        h1.page-title{
+            font-size: @account-page-title-wrapper-h1__font-size;
+            color: @account-page-title-wrapper-h1__color;
+            margin-top: @account-page-title-wrapper-h1__margin-top;
+        }
+        .order-date {
+            margin-top: @account-page-title-wrapper-order-date__margin-top;
+        }
+    }
+}

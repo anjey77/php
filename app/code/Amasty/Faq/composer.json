@@ -1,0 +1,22 @@
+{
+    "name": "amasty/module-faq-product-questions",
+    "description": "FAQ and Products by Amasty team",
+    "require": {
+        "php": "^7.1.0",
+        "amasty/base": ">=1.11.1",
+        "amasty/aminvisiblecaptcha": ">=2.2.5"
+    },
+    "type": "magento2-module",
+    "version": "2.7.7",
+    "license": [
+        "Commercial"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Amasty\\Faq\\": ""
+        }
+    }
+}

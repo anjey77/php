@@ -1,0 +1,22 @@
+<?php
+/**
+ * @var $block \Omnyfy\Vendor\Block\Vendor\View
+ */
+$vendor = $block->getVendor();
+$vendorHelper = $this->helper('Omnyfy\VendorReview\Helper\Vendor');
+$reviewSummaryCount = $vendorHelper->getReviewSummaryCount($vendor);
+?>
+<?php if ($reviewSummaryCount && $reviewSummaryCount > 0) : ?>
+    <div class="review-wrapper">
+        <div class="review-rating-wrapper">
+            <div class="review-rating">
+                <div class="rating-stars-wrapper">
+                    <div class="rating-result">
+                        <span style="width: <?= $vendorHelper->getStarSummary($vendor) ?>%;"></span>
+                    </div>
+                    <div><?= __('from ' . $vendorHelper->getReviewSummaryCount($vendor) . ' reviews') ?></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

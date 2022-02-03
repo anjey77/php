@@ -1,0 +1,80 @@
+//
+// Compatibility with Amasty Jet Theme
+// ______________________________________________
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amasty-jet-theme.gdpr-customer-settings {
+        .amgdpr-actions-toolbar {
+            margin-top: 0;
+        }
+
+        .amgdpr-block-content {
+            margin-bottom: 20px;
+        }
+    }
+
+    .amasty-jet-theme {
+        .amtheme-form .field .amgdpr-label {
+            color: #fff;
+            margin-bottom: 0;
+        }
+
+        .amtheme-newsletter-block .amtheme-form .amtheme-label .mage-error,
+        .amtheme-newsletter-block .amtheme-form .amgdpr-checkbox .mage-error {
+            position: static;
+            margin-top: 0;
+        }
+
+        .amtheme-form .amgdpr-checkbox {
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .amtheme-form,
+        .amtheme-container {
+            flex-direction: column;
+        }
+
+        .amtheme-field.newsletter {
+            margin-bottom: 8px;
+            width: 100%;
+        }
+
+        .amtheme-label,
+        .amtheme-input {
+            width: 100%;
+        }
+    }
+
+    .amasty-jet-theme .amtheme-newsletter-block {
+        & {
+            max-height: none;
+        }
+
+        .amtheme-image {
+            top: ~'calc(50% + 58px)';
+            left: -160%;
+        }
+
+        .amtheme-content {
+            position: relative;
+            z-index: 50;
+            margin-top: 15px;
+        }
+    }
+}
+
+//
+//  Tablet +
+//  --------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .amasty-jet-theme .amtheme-newsletter-block > .amtheme-container > .amtheme-content {
+        max-width: 56%;
+        width: 56%;
+    }
+}

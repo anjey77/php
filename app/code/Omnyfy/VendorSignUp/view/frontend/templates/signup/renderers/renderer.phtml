@@ -1,0 +1,48 @@
+<?php
+/**
+ * @var \Omnyfy\VendorSignUp\Block\SignUp\Renderers\Renderer $block
+ */
+
+$element = $block->getElement();
+?>
+
+<div class="field">
+    <label class="label"><?= $element->getLabel() ?></label>
+    <div class="control">
+        <?php if ($element->getType() == 'text'): ?>
+            <input type="text"
+                   id="<?= $element->getHtmlId()?>"
+                   name="<?= $element->getName()?>"
+                   placeholder="<?= __('Enter your ') . $element->getLabel()?>"
+                   <?= $element->getRequired() === 1 ? ' data-validate="{required:true}" ' : '' ?>
+                   class="input-text"
+                    />
+        <?php elseif ($element->getType() == 'textarea'): ?>
+            <textarea id="<?= $element->getHtmlId()?>"
+                      name="<?= $element->getName()?>"
+                      class="<?= $element->getClass()?>"
+                      <?= $element->getRequired() === 1 ? ' data-validate="{required:true}" ' : '' ?>
+                      rows="<?= $element->getRows()?>"
+                      cols="<?= $element->getCols()?>"></textarea>
+        <?php elseif ($element->getType() == 'select' && $element->getData('ext_type')) :?>
+            <?php if ($element->getData('ext_type') == 'multiple') : ?>
+                <select id="<?= $element->getHtmlId()?>"
+                        name="<?= $element->getName()?>"
+                        multiple="mutiple"
+                    <?= $element->getRequired() === 1 ? ' data-validate="{required:true}" ' : '' ?>>
+                    <?php foreach($element->getValues() as $value): ?>
+                        <option value="<?= $value['value'] ?>"><?= $value['label']?></option>
+                    <?php endforeach; ?>
+                </select>
+            <?php else : ?>
+                <select id="<?= $element->getHtmlId()?>"
+                        name="<?= $element->getName()?>"
+                        <?= $element->getRequired() === 1 ? ' data-validate="{required:true}" ' : '' ?>>
+                    <?php foreach($element->getValues() as $value): ?>
+                        <option value="<?= $value['value'] ?>"><?= $value['label']?></option>
+                    <?php endforeach; ?>
+                </select>
+            <?php endif; ?>
+        <?php endif; ?>
+    </div>
+</div>
